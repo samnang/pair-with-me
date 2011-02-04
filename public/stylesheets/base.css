@@ -1,0 +1,39 @@
+body{
+  background-image: url("../images/bg_gradient.png");
+  background-repeat: repeat-x;
+  margin: 0 auto;
+  width: 960px;
+  font:14px helvetica,arial,freesans,clean,sans-serif;
+}
+
+header{
+  border-bottom: 1px solid #DFE2E1;
+  margin-bottom: 25px;
+  min-height: 100px;
+  position: relative;
+  padding-top: 10px;
+}
+
+#account-bar{
+  float: right;
+  position: relative;
+}
+
+#top-nav{
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 56px; 
+}
+
+#top-nav ul li{
+  display:inline;
+  border-right: 1px solid #E2E2E2;  
+  padding: 0 10px;
+}
+
+#top-nav ul li.last{
+  border:none;
+}
+
+

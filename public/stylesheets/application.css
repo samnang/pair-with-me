@@ -1,0 +1,14 @@
+#guidance p{
+  padding:12px;
+  border: 1px solid #ccc;
+  -moz-box-shadow:0 1px 3px #CCCCCC;
+  font-size:1.5em;
+  text-align:center;
+}
+
+.signup{
+  float: right;
+  position: relative;
+  right: 30px;
+  top: -287px;  
+}

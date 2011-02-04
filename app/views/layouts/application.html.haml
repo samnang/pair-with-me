@@ -1,0 +1,11 @@
+!!! 5
+%html
+  %head
+    %title Pair with Me
+    = csrf_meta_tag
+    = stylesheet_link_tag 'reset', 'base', 'ui', 'application'
+    = javascript_include_tag :defaults
+  %body
+    = render "layouts/header"
+    %section#content
+      = yield
