@@ -36,4 +36,10 @@ header{
   border:none;
 }
 
+.list{
+  list-style:disc inside;
+}
 
+h1{
+  font-size: 2em;
+}

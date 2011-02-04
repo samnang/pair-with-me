@@ -1,4 +1,5 @@
 PairWithMe::Application.routes.draw do
-  get "home/index"
-  root :to => "home#index"
+  match 'example-katas' => 'pages#example_katas'
+
+  root :to => 'home#index'
 end
