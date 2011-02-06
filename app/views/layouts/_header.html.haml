@@ -1,11 +1,19 @@
 %header
+  - flash.each do |name, msg|
+    = content_tag :div, msg, :id => "flash_#{name}"
+
   %a{:href => "/"} 
     %img{:src => "/images/logo.gif"}
 
   %secsion#account-bar
-    %a{:href => "#"} Log me in
-    |
-    %a{:href => "#"} Sign up
+    - if user_signed_in?
+      = link_to current_user.username, edit_user_registration_path
+      |
+      = link_to "Sign out", destroy_user_session_path
+    - else
+      = link_to "Log me in", new_user_session_path
+      |
+      = link_to 'Sign up', new_user_registration_path
 
   %nav#top-nav
     %ul
