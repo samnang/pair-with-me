@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.4.2)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -30,6 +31,11 @@ GEM
     activesupport (3.0.3)
     archive-tar-minitar (0.5.2)
     arel (2.0.7)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-notification (2.3.1)
+      autotest (~> 4.3)
+    autotest-rails-pure (4.1.2)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     columnize (0.3.2)
@@ -119,6 +125,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autotest-notification
+  autotest-rails-pure
   devise
   factory_girl_rails
   haml

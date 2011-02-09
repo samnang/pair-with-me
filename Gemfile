@@ -7,6 +7,8 @@ gem 'mysql2'
 gem 'devise'
 
 group :development, :test do
+  gem 'autotest-notification'
+  gem 'autotest-rails-pure'
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'ruby-debug19'
