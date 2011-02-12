@@ -20,6 +20,20 @@
   background: -moz-linear-gradient(-90deg, #66C7E5, #328FC9) repeat scroll 0 0 transparent;
 }
 
+/* ========== Topic Tags =========== */
+.topic-tag {
+  background-color: #E0EAF1;
+  border-bottom: 1px solid #3E6D8E;
+  border-right: 1px solid #7F9FB6;
+  color: #3E6D8E;
+  font-size: 90%;
+  line-height: 2.4;
+  margin: 2px 5px 2px 0;
+  padding: 3px 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 /* ========== Form ============ */
 .form h2{
   -moz-border-radius: 3px 3px 0 0;

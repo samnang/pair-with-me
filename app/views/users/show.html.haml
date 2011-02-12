@@ -1,3 +1,16 @@
 - title("#{@user.username}'s profile")
 
-= @user.full_name
+%secsion#user-profile
+  .photo
+    = image_tag avatar_url(@user.email, 170)
+  #user-info
+    %h1= @user.full_name
+    %p= @user.about
+
+    %h2 Skills and Interests
+    .skills
+      =raw topic_tags('Ruby, Agile, TDD, RSpec, Clean Code, BDD, Algorithm, Metaprogramming, DSL')
+
+    %h2 Available Times
+    %p Mon-Fri 09:00-13:00 UTC, Sat-Sun 02:00-20:00 UTC
+
