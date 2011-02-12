@@ -10,7 +10,6 @@ describe User do
     it { should_not allow_value("-blah").for(:username) }
     it { should ensure_length_of(:username).is_at_most(20) }
 
-    it { should validate_presence_of(:full_name) }
     it { should ensure_length_of(:full_name).is_at_most(30) }
 
     it { should validate_uniqueness_of(:email) }

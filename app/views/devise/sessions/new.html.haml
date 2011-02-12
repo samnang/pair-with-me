@@ -1,12 +1,14 @@
+- title "Log in"
+
 %secsion#login.form
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %h2 Log in
+    %h2= yield(:title)
 
     %div.form-body
       %p
-        = f.label :email, "Username or Email"
+        = f.label :login
         %br/
-        = f.text_field :email
+        = f.text_field :login
       %p
         = f.label :password
         %br/

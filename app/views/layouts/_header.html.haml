@@ -7,7 +7,9 @@
 
   %secsion#account-bar
     - if user_signed_in?
-      = link_to current_user.username, edit_user_registration_path
+      = link_to current_user.username, current_user
+      |
+      = link_to "Accunt Settings", edit_user_registration_path
       |
       = link_to "Sign out", destroy_user_session_path
     - else

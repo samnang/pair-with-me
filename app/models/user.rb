@@ -20,15 +20,28 @@ class User < ActiveRecord::Base
   validates :github_id,  :length => { :maximum => 40 },
                                    :format => GITHUB_FORMAT
 
-  validates :username, :uniqueness => true, :presence => true, 
-                       :length => { :maximum => 20 }, :format => USER_FORMAT
-  validates :full_name, :presence => true, :length => { :maximum => 30 }
+  validates :username,  :uniqueness => true, :presence => true, 
+                        :length => { :maximum => 20 }, :format => USER_FORMAT
+  validates :full_name, :length => { :maximum => 30 }
 
+
+  attr_accessor :login
   
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me,
+  attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me,
                   :full_name, :time_zone, :website, :twitter_id, :github_id, :availability
 
   before_create :set_full_name
+
+  def to_param
+    username
+  end
+
+  protected
+
+  def self.find_for_database_authentication(conditions)
+    login = conditions.delete(:login)
+    where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
+  end
 
   private
   
