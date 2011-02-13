@@ -34,6 +34,24 @@
   white-space: nowrap;
 }
 
+/* ========== Best in place =========== */
+.best_in_place{
+  padding: .1m;
+  cursor: hand;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.best_in_place:hover {
+  padding-right: 1.5em;
+  background: url("/images/edit.png") no-repeat right;
+  background-color: #CCC;
+}
 /* ========== Form ============ */
 .form h2{
   -moz-border-radius: 3px 3px 0 0;

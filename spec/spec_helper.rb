@@ -1,6 +1,18 @@
 require 'rubygems'
 require 'spork'
 
+module DeviseControllerMacros
+  def login_user
+    let(:user) { Factory.create(:user) }
+
+    before(:each) do
+      @request.env["devise.mapping"] = :user
+
+      sign_in user
+    end
+  end
+end
+
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
@@ -11,6 +23,9 @@ Spork.prefork do
   RSpec.configure do |config|
     config.mock_with :rspec
     config.use_transactional_fixtures = true
+
+    config.include Devise::TestHelpers, :type => :controller
+    config.extend DeviseControllerMacros, :type => :controller
   end
 end
 

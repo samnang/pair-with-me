@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'jquery-rails'
+gem "best_in_place"
 gem 'haml'
 gem 'haml-rails'
 gem 'mysql2'
