@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
+gem 'jquery-rails'
 gem 'haml'
 gem 'haml-rails'
 gem 'mysql2'

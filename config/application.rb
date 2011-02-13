@@ -8,9 +8,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module PairWithMe
   class Application < Rails::Application
-    config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-    config.action_view.javascript_expansions[:cdn] = %w(https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js rails)
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
