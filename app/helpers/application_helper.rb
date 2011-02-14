@@ -17,4 +17,14 @@ module ApplicationHelper
       result << link_to(topic, "/people?topic=#{topic}", :class => 'topic-tag')
     end
   end
+
+  def edit_in_place(object, field, options={})
+    defaults = {:nil => "Click to edit #{field.to_s.gsub('_', ' ')}"}.merge(options)
+
+    if user_signed_in? and current_user.username == @user.username
+      best_in_place object, field, defaults
+    else
+      object.send(field)
+    end
+  end
 end

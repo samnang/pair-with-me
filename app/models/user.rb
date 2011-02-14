@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
   
-  attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me,
-                  :full_name, :time_zone, :website, :twitter_id, :github_id, :availability
+  attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me, :skills,
+                  :full_name, :time_zone, :website, :twitter_id, :github_id, :availability, :about_me
 
   before_create :set_full_name
 

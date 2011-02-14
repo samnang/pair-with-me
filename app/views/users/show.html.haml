@@ -4,13 +4,23 @@
   .photo
     = image_tag avatar_url(@user.email, 170)
   #user-info
-    %h1= best_in_place @user, :full_name
-    %p= best_in_place @user, :about, :type => :textarea, :nil => 'Click to edit about!'
+    %h1= edit_in_place @user, :full_name
+    %p=raw edit_in_place @user, :about_me, :type => :textarea, :sanitize => false
 
     %h2 Skills and Interests
-    .skills
-      =raw topic_tags('Ruby, Agile, TDD, RSpec, Clean Code, BDD, Algorithm, Metaprogramming, DSL')
+    %p=raw edit_in_place @user, :skills, :type => :textarea, :sanitize => false
 
     %h2 Available Times
-    %p= best_in_place @user, :availability, :nil => 'Click to edit availability!'
+    %p
+      = edit_in_place @user, :availability
+      %br
+      = edit_in_place @user, :time_zone
+
+    %h2 Websites
+    %p
+      = edit_in_place @user, :website
+      %br
+      = edit_in_place @user, :twitter_id
+      %br
+      = edit_in_place @user, :github_id
 
