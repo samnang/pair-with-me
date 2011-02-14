@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  has_many :request_to, :class_name => "PairRequest", 
+    :foreign_key => "sender_id", :conditions => "status != 'Rejected'"
+  has_many :receive_from, :class_name => "PairRequest", 
+    :foreign_key => "partner_id", :conditions => "status != 'Rejected'"
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

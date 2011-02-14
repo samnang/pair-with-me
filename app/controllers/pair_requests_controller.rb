@@ -1,0 +1,2 @@
+class PairRequestsController < ApplicationController
+end

@@ -2,15 +2,41 @@ require 'spec_helper'
 
 describe UsersController do
   describe "GET 'show'" do
-    let(:user) { Factory.create(:user) }
 
-    before { get :show, :id => user.username}
+    shared_examples_for 'reponse user' do
+      before { get :show, :id => user.username }
 
-    it { should respond_with(:success) }
-    it { assigns[:user].should == user }
+      it { should respond_with(:success) }
+      it { assigns[:user].should == user }
+    end
 
-    # Wait until gem gets new release
-    # it { should assign_to(:user).with(user) }
+    context "on the same logged in user" do
+      login_user
+
+      it_should_behave_like 'reponse user'
+      it { assigns[:pair_request].should be_nil }
+    end
+
+    context "different from logged in user" do
+      let(:user) { Factory.create(:user) }
+      let(:logged_in_user) { Factory.create(:user, :username => 'test') }
+
+      before { sign_in logged_in_user }
+
+      it_should_behave_like 'reponse user'
+      it 'should partner equal current view profile' do
+        get :show, :id => user.username
+
+        assigns[:pair_request].partner_id.should == user.id
+      end
+    end
+
+    context "no log in" do
+      let(:user) { Factory.create(:user) }
+
+      it_should_behave_like 'reponse user'
+      it { assigns[:pair_request].should be_nil }
+    end
   end
 
   describe "PUT 'update'" do

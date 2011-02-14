@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  describe "validations" do
+  context "validations" do
     subject { Factory.create(:user) }
 
     it { should validate_uniqueness_of(:username) }
@@ -27,5 +27,10 @@ describe User do
     it { should_not allow_value("-blah").for(:github_id) }
     it { should allow_value("blah-1").for(:github_id) }
     it { should ensure_length_of(:github_id).is_at_most(40) }
+  end
+
+  context "associations" do
+    it { should have_many(:request_to) }
+    it { should have_many(:receive_from) }
   end
 end
