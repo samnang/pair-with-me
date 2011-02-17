@@ -41,14 +41,12 @@ class User < ActiveRecord::Base
     username
   end
 
-  protected
+  private
 
   def self.find_for_database_authentication(conditions)
     login = conditions.delete(:login)
     where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
   end
-
-  private
   
   def set_full_name
     self.full_name = self.username

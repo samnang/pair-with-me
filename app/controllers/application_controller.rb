@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  helper_method :view_logged_in_user_profile?
 
   private
 

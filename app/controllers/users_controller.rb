@@ -10,13 +10,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_username(params[:id])
-
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if current_user.update_attributes(params[:user])
         format.json { head :ok }
       else
-        format.json  { render :json => @user.errors, :status => :unprocessable_entity }
+        format.json  { render :json => current_user.errors, :status => :unprocessable_entity }
       end
     end
   end

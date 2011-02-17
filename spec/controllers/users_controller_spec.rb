@@ -50,7 +50,7 @@ describe UsersController do
       let(:params) { {:id => user.username, :format => :json, :user => {:full_name => 'my name'}} }
 
       it { should respond_with(:success) }
-      it { assigns[:user].full_name.should == params[:user][:full_name] }
+      it { controller.current_user.full_name.should == params[:user][:full_name] }
     end
 
     context "different from logged in user" do
