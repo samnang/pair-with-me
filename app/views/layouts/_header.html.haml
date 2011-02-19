@@ -1,23 +1,9 @@
 %header
-  - flash.each do |name, msg|
-    = content_tag :div, msg, :id => "flash_#{name}"
 
   %a{:href => "/"} 
     %img{:src => "/images/logo.gif"}
-
-  %secsion#account-bar
-    - if user_signed_in?
-      = link_to current_user do
-        = image_tag avatar_url(current_user.email, 20)
-      = link_to current_user.username, current_user
-      |
-      = link_to "Accunt Settings", edit_user_registration_path
-      |
-      = link_to "Sign out", destroy_user_session_path
-    - else
-      = link_to "Log me in", new_user_session_path
-      |
-      = link_to 'Sign up', new_user_registration_path
+  
+  = render "layouts/account_bar"
 
   %nav#top-nav
     %ul
@@ -26,4 +12,4 @@
       %li
         %a{:href => "#"} Archieves
       %li.last
-        %a{:href => "/example-katas"} Example Katas
+        %a{:href => example_katas_path} Example Katas

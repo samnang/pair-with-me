@@ -31,7 +31,7 @@ module PairWithMe
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w(jquery rails jquery.purr best_in_place)
+    config.action_view.javascript_expansions[:defaults] = %w(jquery jquery-ui rails jquery.purr best_in_place jquery.ui.datetime.min)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

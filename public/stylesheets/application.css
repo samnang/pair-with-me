@@ -21,6 +21,10 @@
   float: left;
 }
 
-#user-info p, #user-info div{
+#user-info p{
   padding: 5px 0 20px;
+}
+
+#error_explanation h2{
+  font-size: 1.2em;
 }

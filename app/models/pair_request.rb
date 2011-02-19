@@ -5,5 +5,4 @@ class PairRequest < ActiveRecord::Base
   validates :subject,     :presence => true
   validates :description, :presence => true
   validates :pair_date,   :presence => true
-  validates :pair_time,   :presence => true
 end

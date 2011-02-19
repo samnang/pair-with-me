@@ -1,6 +1,6 @@
 - title("#{@user.username}'s profile")
 
-%secsion#user-profile
+%section#user-profile
   .photo
     = image_tag avatar_url(@user.email, 170)
   #user-info
@@ -24,3 +24,5 @@
       %br
       = edit_in_place @user, :github_id
 
+    - if @pair_request
+      =render :partial => "pair_requests/form"

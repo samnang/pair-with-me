@@ -5,7 +5,6 @@ describe PairRequest do
     it { should validate_presence_of(:subject) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:pair_date) }
-    it { should validate_presence_of(:pair_time) }
   end
 
   context "associations" do

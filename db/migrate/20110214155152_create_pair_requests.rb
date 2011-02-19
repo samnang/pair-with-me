@@ -2,8 +2,7 @@ class CreatePairRequests < ActiveRecord::Migration
   def self.up
     create_table :pair_requests do |t|
       t.string :subject
-      t.date :pair_date
-      t.time :pair_time
+      t.datetime :pair_date
       t.text :description
       t.string :status, :default => "Pending"
       t.integer :sender_id

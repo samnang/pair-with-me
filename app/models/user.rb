@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   has_many :request_to, :class_name => "PairRequest", 
-    :foreign_key => "sender_id", :conditions => "status != 'Rejected'"
+    :foreign_key => "sender_id", :conditions => "status = 'Pending'"
   has_many :receive_from, :class_name => "PairRequest", 
-    :foreign_key => "partner_id", :conditions => "status != 'Rejected'"
+    :foreign_key => "partner_id", :conditions => "status = 'Pending'"
+
+  
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -37,13 +39,18 @@ class User < ActiveRecord::Base
 
   before_create :set_full_name
 
-  def to_param
-    username
-  end
-
+  # Overrides to support login with username or email
   def self.find_for_database_authentication(conditions)
     login = conditions.delete(:login)
     where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
+  end
+
+  def pair_sessions
+    PairRequest.where("(sender_id = ? OR partner_id = ?) AND status = 'Accepted'", id, id)
+  end
+
+  def to_param
+    username
   end
 
   private
