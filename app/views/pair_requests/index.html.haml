@@ -1,3 +1,14 @@
 - title 'My Schedules'
 
 %h1 My Schedules
+%h2 Receive From
+- @receive_from.each do |r|
+  = "From #{r.sender.username}"
+
+%h2 Request To
+- @request_to.each do |r|
+  = "To #{r.partner.username}"
+
+%h2 Pair Sessions
+- @pair_sessions.each do |r|
+  = "#{r.sender.username} with #{r.partner.username}"
