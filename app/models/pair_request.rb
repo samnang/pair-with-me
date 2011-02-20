@@ -5,4 +5,8 @@ class PairRequest < ActiveRecord::Base
   validates :subject,     :presence => true
   validates :description, :presence => true
   validates :pair_date,   :presence => true
+
+  def sent_from?(user)
+    sender == user
+  end
 end

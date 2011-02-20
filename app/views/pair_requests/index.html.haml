@@ -1,22 +1,4 @@
-- title 'My Schedules'
-
-= content_for :header_bottom do
-  = javascript_include_tag 'sidebar_menu'
-  :javascript
-    $(function(){
-      
-      // Toggle description
-      $('.header').click(function(e){
-        $(e.target).siblings('.description').slideToggle();
-      }); 
-
-      // Collapse all descriptions
-      $('.pair .description').each(function(){
-        $(this).slideToggle();
-      }); 
-      
-      SidebarMenu.register('sidebar');
-    });
+= render "header"
 
 %h1 My Schedules
 
@@ -36,4 +18,6 @@
   #receive_from.bucket
     = render :partial => "pair", :collection => @receive_from, :as => :pair
   #request_to.bucket
+    = render :partial => "pair", :collection => @request_to, :as => :pair
   #pair_sessions.bucket
+    = render :partial => "pair", :collection => @pair_sessions, :as => :pair

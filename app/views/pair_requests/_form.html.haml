@@ -6,7 +6,7 @@
     = f.label :subject
   %p
     = f.text_field :pair_date, :class => 'datetime' 
-    = f.label :pair_date, 'Date and Time'
+    = f.label :pair_date, 'Date and Time', :autocomplete => :off
   %p
     = f.text_area :description
   %p= f.submit "Submit your request"

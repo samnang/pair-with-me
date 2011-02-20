@@ -1,12 +1,16 @@
+- partner = pair.sent_from?(current_user) ? pair.partner : pair.sender
+
 .pair{:data => { :id => pair.id }}
   .header
-    = image_tag avatar_url(pair.sender.email, 24)
-    = link_to pair.sender.username, user_path(pair.sender)
+    = image_tag avatar_url(partner.email, 24)
+    = link_to partner.username, partner
     .subject= pair.subject
     .controls
-      = link_to '', pair_request_path(pair, :status => 'accept'),
-        :class   => "accept", :title  => "Accept",
-        :method  => :put,  :remote => true
+      = pair.pair_date.strftime("%b %d, %Y at %H:%M UTC")
+      - unless pair.sent_from?(current_user)
+        = link_to '', pair_request_path(pair, :status => 'accept'),
+          :class   => "accept", :title  => "Accept",
+          :method  => :put,  :remote => true
       = link_to '', pair_request_path(pair, :status => 'reject'),
         :class   => "reject", :title  => "Reject",
         :method  => :put,  :remote => true,
