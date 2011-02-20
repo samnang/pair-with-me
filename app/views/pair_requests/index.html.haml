@@ -1,14 +1,28 @@
 - title 'My Schedules'
 
+= content_for :header_bottom do
+  = javascript_include_tag 'sidebar_menu'
+  :javascript
+    $(function(){
+      SidebarMenu.register('sidebar');
+    });
+
 %h1 My Schedules
-%h2 Receive From
-- @receive_from.each do |r|
-  = "From #{r.sender.username}"
 
-%h2 Request To
-- @request_to.each do |r|
-  = "To #{r.partner.username}"
+%nav
+  %ul#sidebar
+    %li
+      = link_to "Receive From", my_schedules_path(:anchor => "receive_from"),
+        :"data-id" => "receive_from"
+    %li
+      = link_to "Request To", my_schedules_path(:anchor => "request_to"),
+        :"data-id" => "request_to" 
+    %li
+      = link_to "Pair Sessions", my_schedules_path(:anchor => "pair_sessions"),
+        :"data-id" => "pair_sessions"
 
-%h2 Pair Sessions
-- @pair_sessions.each do |r|
-  = "#{r.sender.username} with #{r.partner.username}"
+%section#bucket
+  #receive_from.bucket
+    Sample text
+  #request_to.bucket
+  #pair_sessions.bucket

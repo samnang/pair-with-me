@@ -19,6 +19,14 @@ header{
   position: relative;
 }
 
+a{
+  color: #184FA0;
+}
+
+nav a{
+  text-decoration: none;
+}
+
 #top-nav{
   float: right;
   position: absolute;

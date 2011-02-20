@@ -1,3 +1,7 @@
+section h1{
+  padding-bottom: 20px;
+}
+
 #guidance p{
   padding:12px;
   border: 1px solid #ccc;
@@ -7,7 +11,7 @@
 }
 
 #kata{
-  padding: 20px;
+  padding-left: 20px;
 }
 
 #login, #signup{
@@ -27,4 +31,28 @@
 
 #error_explanation h2{
   font-size: 1.2em;
+}
+
+nav #sidebar{
+  float: left;
+  margin-right: 10px;
+  width: 180px;
+}
+
+#sidebar a{
+  display: block;
+  font-size: 1.2em;
+  text-align: left;
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+#sidebar a:hover, #sidebar a.selected{
+  background: #ccc;
+}
+
+#bucket{
+  float: left;
+  border-left: 1px solid #ccc;
+  padding: 10px 20px;
 }

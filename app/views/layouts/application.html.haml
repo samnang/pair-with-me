@@ -3,8 +3,9 @@
   %head
     %title #{content_for?(:title) ? yield(:title) : "Pair with people who have the same interests"} - Pair with Me
     = csrf_meta_tag
-    = stylesheet_link_tag 'reset', 'base', 'ui', 'application', 'jquery-ui', 'jquery.ui.datetime'
+    = stylesheet_link_tag 'reset', 'base', 'ui', 'application'
     = javascript_include_tag :defaults
+    = yield(:header_bottom)
   %body
     = render "layouts/header"
     = render :partial => "layouts/flash", :locals => {:flash => flash}
