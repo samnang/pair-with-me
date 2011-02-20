@@ -7,7 +7,7 @@
     = javascript_include_tag :defaults
     = yield(:header_bottom)
   %body
-    = render "header"
+    = render "layouts/header"
     = render :partial => "layouts/flash", :locals => {:flash => flash}
     %section#content
       = yield
