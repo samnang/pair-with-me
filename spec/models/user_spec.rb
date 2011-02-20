@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   context "validations" do
-    subject { Factory.create(:user) }
+    subject { Factory(:user) }
 
     it { should validate_uniqueness_of(:username) }
     it { should validate_presence_of(:username) }

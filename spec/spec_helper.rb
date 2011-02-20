@@ -3,7 +3,7 @@ require 'spork'
 
 module DeviseControllerMacros
   def login_user
-    let(:user) { Factory.create(:user) }
+    let(:user) { Factory(:user) }
 
     before(:each) do
       @request.env["devise.mapping"] = :user

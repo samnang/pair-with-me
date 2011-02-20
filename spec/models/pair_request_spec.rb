@@ -13,8 +13,8 @@ describe PairRequest do
   end
 
   describe "#sent_from?(user)" do
-    let(:sender) { Factory.create(:user) }
-    let(:pair) { Factory.create(:pair_request, :sender => sender) }
+    let(:sender) { Factory(:user) }
+    let(:pair) { Factory(:pair_request, :sender => sender) }
 
     it "should return true when user is the sender of pair request" do
       pair.sent_from?(sender).should be_true

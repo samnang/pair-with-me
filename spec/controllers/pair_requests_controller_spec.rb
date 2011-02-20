@@ -4,7 +4,7 @@ describe PairRequestsController do
   login_user
 
   describe "POST 'create'" do
-    let(:partner) { Factory.create(:user, :username => 'samnang') }
+    let(:partner) { Factory(:user, :username => 'samnang') }
     let(:pair_request_param) do 
       { 
         :subject => 'subject', 

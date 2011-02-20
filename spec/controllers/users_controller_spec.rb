@@ -18,8 +18,8 @@ describe UsersController do
     end
 
     context "different from logged in user" do
-      let(:user) { Factory.create(:user) }
-      let(:logged_in_user) { Factory.create(:user, :username => 'test') }
+      let(:user) { Factory(:user) }
+      let(:logged_in_user) { Factory(:user, :username => 'test') }
 
       before { sign_in logged_in_user }
 
@@ -32,7 +32,7 @@ describe UsersController do
     end
 
     context "no log in" do
-      let(:user) { Factory.create(:user) }
+      let(:user) { Factory(:user) }
 
       it_should_behave_like 'reponse user'
       it { assigns[:pair_request].should be_nil }
@@ -54,7 +54,7 @@ describe UsersController do
     end
 
     context "different from logged in user" do
-      let(:another_user) { Factory.create(:user, :username => 'another')}
+      let(:another_user) { Factory(:user, :username => 'another')}
       let(:params) { {:id => another_user.username, :format => :json, :user => {:full_name => 'my name'}} }
 
       it { should respond_with(:forbidden) }
