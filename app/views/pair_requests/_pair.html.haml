@@ -7,11 +7,11 @@
     .subject= pair.subject
     .controls
       = pair.pair_date.strftime("%b %d, %Y at %H:%M UTC")
-      - unless pair.sent_from?(current_user)
-        = link_to '', pair_request_path(pair, :status => 'accept'),
+      - unless pair.sent_from?(current_user) or pair.status == "Accepted"
+        = link_to '', pair_request_path(pair, :status => 'Accepted'),
           :class   => "accept", :title  => "Accept",
           :method  => :put,  :remote => true
-      = link_to '', pair_request_path(pair, :status => 'reject'),
+      = link_to '', pair_request_path(pair, :status => 'Rejected'),
         :class   => "reject", :title  => "Reject",
         :method  => :put,  :remote => true,
         :confirm => "Are you sure you wish to reject this pair?"

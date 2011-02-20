@@ -1,0 +1,10 @@
+-# Toggle flash message
+$('div#flash').show().html('<div id="flash-notice">Pair has been #{@pair.status.downcase}</div>');
+setTimeout("$('div#flash').slideUp()", 3000);
+
+$('.pair[data-id=#{@pair.id}]').remove();
+
+-# Add into pair session with event
+- if @pair.status == "Accepted" 
+  $('#pair_sessions').prepend('#{escape_javascript(render(:partial => 'pair', :locals => { :pair => @pair }))}');
+  $('.pair[data-id=#{@pair.id}] .header').click(function(e){ $(e.target).siblings('.description').slideToggle();}); 
