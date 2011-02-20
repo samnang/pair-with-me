@@ -1,0 +1,14 @@
+.pair{:data => { :id => pair.id }}
+  .header
+    = image_tag avatar_url(pair.sender.email, 24)
+    = link_to pair.sender.username, user_path(pair.sender)
+    .subject= pair.subject
+    .controls
+      = link_to '', pair_request_path(pair, :status => 'accept'),
+        :class   => "accept", :title  => "Accept",
+        :method  => :put,  :remote => true
+      = link_to '', pair_request_path(pair, :status => 'reject'),
+        :class   => "reject", :title  => "Reject",
+        :method  => :put,  :remote => true,
+        :confirm => "Are you sure you wish to reject this pair?"
+  .description= pair.description

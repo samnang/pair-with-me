@@ -1,0 +1,10 @@
+- title("#{@user.username}'s profile")
+
+= content_for :header_bottom do
+  = stylesheet_link_tag 'jquery-ui', 'jquery.ui.datetime'
+  = javascript_include_tag  %w(jquery-ui jquery.purr best_in_place jquery.ui.datetime.min)
+  :javascript
+    $(document).ready(function() {
+      $(".best_in_place").best_in_place();
+      $(".datetime").datetime({format: "d M yy 'at' hh:ii UTC"});
+    });

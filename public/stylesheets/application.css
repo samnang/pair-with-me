@@ -54,5 +54,7 @@ nav #sidebar{
 #bucket{
   float: left;
   border-left: 1px solid #ccc;
-  padding: 10px 20px;
+  padding: 0 20px;
+  width: 725px;
+  min-height: 350px;
 }
