@@ -1,6 +1,6 @@
 = link_to user do
   .user
-    .avatar= image_tag avatar_url(user.email)
+    .avatar= image_tag user.avatar_url
     .name= user.full_name
     .skills= user.skills
     .clear

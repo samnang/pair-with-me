@@ -2,7 +2,7 @@
 
 .pair{:data => { :id => pair.id }}
   .header
-    = image_tag avatar_url(partner.email, 24)
+    = image_tag partner.avatar_url(24)
     = link_to partner.username, partner
     .subject= pair.subject
     .controls

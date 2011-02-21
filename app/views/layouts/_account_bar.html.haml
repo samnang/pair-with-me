@@ -1,7 +1,7 @@
 %section#account-bar
   - if user_signed_in?
     = link_to current_user do
-      = image_tag avatar_url(current_user.email, 20)
+      = image_tag current_user.avatar_url(20)
       = link_to current_user.username, current_user
       |
       = link_to "My Schedules", my_schedules_path

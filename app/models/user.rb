@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  DEFAULT_SIZE_AVATAR = 48
+
   has_many :request_to, :class_name => "PairRequest", 
     :foreign_key => "sender_id", :conditions => "status = 'Pending'"
   has_many :receive_from, :class_name => "PairRequest", 
@@ -47,6 +49,12 @@ class User < ActiveRecord::Base
 
   def pair_sessions
     PairRequest.where("(sender_id = ? OR partner_id = ?) AND status = 'Accepted'", id, id)
+  end
+
+  def avatar_url(size = DEFAULT_SIZE_AVATAR)
+    gravatar_id = Digest::MD5::hexdigest(email).downcase  
+
+    "http://gravatar.com/avatar/#{gravatar_id}.png?d=mm&s=#{size}"
   end
 
   def to_param

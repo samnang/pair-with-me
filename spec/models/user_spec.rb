@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  context "validations" do
+  describe "validations" do
     subject { Factory(:user) }
 
     it { should validate_uniqueness_of(:username) }
@@ -29,8 +29,27 @@ describe User do
     it { should ensure_length_of(:github_id).is_at_most(40) }
   end
 
-  context "associations" do
+  describe "associations" do
     it { should have_many(:request_to) }
     it { should have_many(:receive_from) }
+  end
+
+
+  describe '#avatar_url' do
+    let(:user) { Factory(:user, :email => "samnang.chhun@gmail.com") }
+    
+    def expected_gravatar_url(size = User::DEFAULT_SIZE_AVATAR)
+      "http://gravatar.com/avatar/863e24c91fcf1cd3c879ea62a401365e.png?d=mm&s=#{size}"
+    end
+
+    it "should return gravatar url with default size" do
+      user.avatar_url.should == expected_gravatar_url
+    end
+
+    it "should return gravatar url with custom size" do
+      size = 256
+
+      user.avatar_url(size).should == expected_gravatar_url(size)
+    end
   end
 end
