@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe UsersController do
+  describe "GET 'index'" do
+    let(:users){ (1..20).map{ Factory(:user) } }
+
+    before { users; get :index }
+
+    it { should respond_with(:success) }
+    it { assigns[:users].should == users }
+  end
+
   describe "GET 'show'" do
 
     shared_examples_for 'reponse user' do

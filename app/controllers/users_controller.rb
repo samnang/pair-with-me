@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :only_update_logged_in_user_profile, :only => :update
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find_by_username(params[:id])
 

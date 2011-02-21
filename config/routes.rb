@@ -1,6 +1,6 @@
 PairWithMe::Application.routes.draw do
   devise_for :users
-  resources :users, :only => [:show, :update]
+  resources :users, :only => [:index, :show, :update]
   resources :pair_requests, :only => [:create, :update]
 
   match 'my_schedules' => 'pair_requests#index'
