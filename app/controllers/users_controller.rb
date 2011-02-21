@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only_update_logged_in_user_profile, :only => :update
 
   def index
-    @users = User.order(:username).page(params[:page])
+    @users = User.order(:full_name).page(params[:page])
   end
 
   def show
