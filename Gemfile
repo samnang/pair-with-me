@@ -7,6 +7,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'mysql2'
 gem 'devise'
+gem 'kaminari'
 
 group :development, :test do
   gem 'autotest-notification'

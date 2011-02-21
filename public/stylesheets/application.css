@@ -12,6 +12,7 @@ section h1{
 
 #kata{
   padding-left: 20px;
+  padding-bottom: 20px;
 }
 
 #login, #signup{
@@ -57,4 +58,39 @@ nav #sidebar{
   padding: 0 20px;
   width: 725px;
   min-height: 350px;
+}
+
+#users .user{
+  padding: 0.5em 0;
+  border-bottom: 1px solid #DDD;
+  clear: both;
+  cursor: pointer;
+}
+
+#users .user:hover{
+  background-color: #EEE;
+}
+
+#users .user .avatar{
+  float: left;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+#users .user .name{
+  color: #222;
+  font-size: 1.25em;
+  padding-top: 5px;
+}
+
+#users .user .skills{
+  margin-top: 0.5em;
+  color: #777;
+}
+
+nav.pagination{
+  color: #444444;
+  margin: 1em 0;
+  padding: 1em 0;
+  text-align: center;
 }

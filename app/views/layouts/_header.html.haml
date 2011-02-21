@@ -8,8 +8,8 @@
   %nav#top-nav
     %ul
       %li
-        %a{:href => "#"} People
+        = link_to 'Users', users_path
       %li
         %a{:href => "#"} Archieves
       %li.last
-        %a{:href => example_katas_path} Example Katas
+        = link_to 'Example Katas', example_katas_path

@@ -7,7 +7,7 @@ describe UsersController do
     before { users; get :index }
 
     it { should respond_with(:success) }
-    it { assigns[:users].should == users }
+    it { assigns[:users].should == users.take(10) }
   end
 
   describe "GET 'show'" do

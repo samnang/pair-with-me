@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :receive_from, :class_name => "PairRequest", 
     :foreign_key => "partner_id", :conditions => "status = 'Pending'"
 
-  
+  paginates_per 10
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
