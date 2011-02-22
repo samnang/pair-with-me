@@ -22,26 +22,10 @@ class PairRequestsController < ApplicationController
     @pair = PairRequest.find(params[:id])
     @pair.status = params[:status]
     
-    if pair_belongs_to_current_user?
-      return render_permission_denied if @pair.status == "Accepted" and 
-                                         @pair.sent_from?(current_user)
-         
-      @pair.save
-
-      render 'update.js.haml'
+    if @pair.update_status_by(current_user)
+        render 'update.js.haml'
     else
-
-      render_permission_denied
+      render :nothing => true, :status => :forbidden
     end
-  end
-
-  private
-  
-  def pair_belongs_to_current_user?
-    @pair.sender == current_user || @pair.partner == current_user
-  end
-
-  def render_permission_denied
-    render :nothing => true, :status => :forbidden
   end
 end

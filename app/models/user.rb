@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def pair_sessions
-    PairRequest.where("(sender_id = ? OR partner_id = ?) AND status = 'Accepted'", id, id)
+    PairRequest.pair_sessions_of_user(id)
   end
 
   def avatar_url(size = DEFAULT_SIZE_AVATAR)
