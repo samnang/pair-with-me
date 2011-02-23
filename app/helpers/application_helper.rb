@@ -14,7 +14,7 @@ module ApplicationHelper
   def edit_in_place(object, field, options={})
     defaults = {:nil => "Click to edit #{field.to_s.gsub('_', ' ')}"}.merge(options)
 
-    if user_signed_in? and view_logged_in_user_profile?
+    if viewing_logged_in_user_profile?
       best_in_place object, field, defaults
     else
       object.send(field)

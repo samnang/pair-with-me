@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_username(params[:id])
 
-    if user_signed_in? and not view_logged_in_user_profile?
+    if viewing_other_users_profile?
       @pair_request = @user.receive_from.build(:sender_id => current_user.id)
     end
   end
@@ -24,9 +24,14 @@ class UsersController < ApplicationController
   end
 
   private
+
   def only_update_logged_in_user_profile
-    unless view_logged_in_user_profile?
+    if viewing_other_users_profile?
       render :nothing => true, :status => :forbidden
     end
+  end
+
+  def viewing_other_users_profile?
+    user_signed_in? and not viewing_logged_in_user_profile?
   end
 end
