@@ -64,37 +64,35 @@ nav #sidebar{
   min-height: 350px;
 }
 
-#users .user{
+.user{
   padding: 0.5em 0;
   border-bottom: 1px solid #DDD;
   clear: both;
+  color: #000;
   cursor: pointer;
 }
 
-#users .user:hover{
+.user:hover{
   background-color: #EEE;
 }
 
-#users .user .avatar{
+.user .avatar{
   float: left;
   padding: 5px;
   margin-right: 10px;
 }
 
-#users .user .name{
-  color: #222;
+.user .name{
   font-size: 1.25em;
   padding-top: 5px;
 }
 
-#users .user .skills{
+.user .skills{
   margin-top: 0.5em;
-  color: #777;
+  color: #555;
 }
 
 nav.pagination{
-  color: #444444;
-  margin: 1em 0;
-  padding: 1em 0;
+  padding-top: 10px;
   text-align: center;
 }
