@@ -1,15 +1,20 @@
 .signup-button{
-  -moz-border-radius: 4px 4px 4px 4px;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  background: -moz-linear-gradient(center top , #50B7D1, #286DA3) repeat scroll 0 0 transparent;
-  border: 1px solid #51A0B3;
-  color: #FFFFFF;
+  border: 1px solid #696;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: #666 0px 2px 3px;
+  -moz-box-shadow: #666 0px 2px 3px;
+  box-shadow: #666 0px 2px 3px;
+  background: #EEFF99;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#EEFF99), to(#66EE33));
+  background: -moz-linear-gradient(#EEFF99, #66EE33);
+  background: linear-gradient(#EEFF99, #66EE33);
   display: inline-block;
   font-size: 30px;
-  font-weight: bold;
   padding: 20px 50px;
   text-decoration: none;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.25);
+  text-align: center;
   float: right;
   position: relative;
   right: 30px;
@@ -17,7 +22,10 @@
 }
 
 .signup-button:hover{
-  background: -moz-linear-gradient(-90deg, #66C7E5, #328FC9) repeat scroll 0 0 transparent;
+  background: #FFA699;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFA699), to(#F3CE1B));
+  background: -moz-linear-gradient(#FFA699, #F3CE1B);
+  background: linear-gradient(#FFA699, #F3CE1B);
 }
 
 /* ========== Topic Tags =========== */
@@ -52,74 +60,27 @@
   background: url("/images/edit.png") no-repeat right;
   background-color: #CCC;
 }
+
 /* ========== Form ============ */
-section.form > form > h2{
-  -moz-border-radius: 3px 3px 0 0;
-  background: -moz-linear-gradient(center top , #829AA8, #405A6A) repeat scroll 0 0 transparent;
-  border-color: #677C89 #677C89 #6B808D;
-  border-style: solid;
-  border-width: 1px;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  padding: 8px 18px;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.698);
+.form{
+  border: 1px solid #696;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  background: #EEFFFF;
 }
 
-.form .form-body {
-  -moz-border-radius: 0 0 3px 3px;
-  background-color: #E9F1F4;
-  border-color: #E9F1F4 #D8DEE2 #D8DEE2;
-  border-style: solid;
-  border-width: 1px 1px 2px;
-  overflow: hidden;
-  padding: 2em;
+.form h2{
+  text-align: center;
+  border-bottom: 1px solid #CCC;
 }
 
-.form label, .form .label, label.standard {
-  color: #2F424E;
-  cursor: text;
-  display: inline-block;
-  font-size: 1.1em;
-  text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.1);
+.form-body{
+  padding: 20px;
 }
 
-.form input[type="text"], .form input[type="password"], .form textarea {
-  font-size: 1.3em;
-  border: 1px solid #D8DEE2;
-  margin: 0.2em 0 1em;
-  padding: 5px;
-}
-
-.form input[type="submit"] {
-  -moz-border-radius: 4px 4px 4px 4px;
-  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  background: -moz-linear-gradient(-90deg, #FFFFFF, #E1E1E1) repeat scroll 0 0 transparent;
-  border-color: -moz-use-text-color -moz-use-text-color #EBEBEB;
-  border-style: none none solid;
-  border-width: medium medium 1px;
-  color: #333333;
-  cursor: pointer;
-  display: inline-block;
-  font-family: helvetica,arial,freesans,clean,sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  height: 34px;
-  margin-left: 1px;
-  overflow: visible;
-  padding: 0 13px;
-  position: relative;
-  text-shadow: 1px 1px 0 #FFFFFF;
-  top: 1px;
-  white-space: nowrap;
-}
-
-.form input[type="submit"]:hover {
-  background: -moz-linear-gradient(-90deg, #0CA6DD, #0770A0) repeat scroll 0 0 transparent;
-  border-bottom-color: #0770A0;
-  color: #FFFFFF;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+.form-body p{
+  padding-top: 15px;
 }
 
 /* ============ Flash Messages =========== */
