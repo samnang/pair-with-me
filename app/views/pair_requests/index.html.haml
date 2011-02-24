@@ -1,4 +1,7 @@
-= render "header"
+- title 'My Schedules'
+
+= content_for :header_bottom do
+  = javascript_include_tag 'sidebar_menu'
 
 %h1 My Schedules
 

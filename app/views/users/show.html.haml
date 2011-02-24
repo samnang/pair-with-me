@@ -1,4 +1,8 @@
-= render "header"
+- title("#{@user.username}'s profile")
+
+= content_for :header_bottom do
+  = stylesheet_link_tag 'jquery-ui', 'jquery.ui.datetime'
+  = javascript_include_tag  %w(jquery-ui jquery.purr best_in_place jquery.ui.datetime.min)
 
 %section#user-profile
   .photo
