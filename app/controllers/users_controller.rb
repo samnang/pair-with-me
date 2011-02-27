@@ -17,8 +17,10 @@ class UsersController < ApplicationController
     if current_user.update_attributes(params[:user])
       redirect_to current_user, :notice => "You updated your profile successfully."
     else
-      #TODO: find a way to render registrations#edit with errors
-      redirect_to :back
+      #TODO: find a better way to display errors on the form
+
+      error_message = "Please fix error(s): " + current_user.errors.full_messages.join(", ")
+      redirect_to :back, :alert => error_message
     end
   end
 
