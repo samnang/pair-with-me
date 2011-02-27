@@ -2,31 +2,37 @@
 
 = content_for :header_bottom do
   = stylesheet_link_tag 'jquery-ui', 'jquery.ui.datetime'
-  = javascript_include_tag  %w(jquery-ui jquery.purr best_in_place jquery.ui.datetime.min)
+  = javascript_include_tag  %w(jquery-ui jquery.ui.datetime.min)
 
 %section#user-profile
   .photo
     = image_tag @user.avatar_url(170)
   #user-info
-    %h1= edit_in_place @user, :full_name
-    %p=raw edit_in_place @user, :about_me, :type => :textarea, :sanitize => false
+    %h1= @user.full_name
+    %p= @user.about_me
 
     %h2 Skills and Interests
-    %p=raw edit_in_place @user, :skills, :type => :textarea, :sanitize => false
+    %p= @user.skills
 
     %h2 Available Times
     %p
-      = edit_in_place @user, :availability
+      = @user.availability
       %br
-      = edit_in_place @user, :time_zone
+      = @user.time_zone
 
     %h2 Websites
     %p
-      = edit_in_place @user, :website
+      - if @user.website
+        %span= "Website: "
+        = @user.website
       %br
-      = edit_in_place @user, :twitter_id
+      - if @user.twitter_id
+        %span= "Twitter: "
+        = @user.twitter_id
       %br
-      = edit_in_place @user, :github_id
+      - if @user.github_id
+        %span= "Github: "
+        = @user.github_id
 
     - if @pair_request
       =render :partial => "pair_requests/form"

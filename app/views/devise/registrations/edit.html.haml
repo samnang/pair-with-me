@@ -1,27 +1,18 @@
 - title "Account Settings"
 
-%section#login.form
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-    %h2= yield(:title)
+= content_for :header_bottom do
+  = javascript_include_tag 'sidebar_menu'
 
-    %div.form-body
-      = devise_error_messages!
-      %p
-        = f.label :email
-        %br/
-        = f.text_field :email
-      %p
-        = f.label :password
-        %i (leave blank if you don't want to change it)
-        %br/
-        = f.password_field :password
-      %p
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation
-      %p
-        = f.label :current_password
-        %i (we need it to confirm your changes)
-        %br/
-        = f.password_field :current_password
-      %p= f.submit "Update"
+%h1 Account Settings
+%nav
+  %ul#sidebar
+    %li
+      = link_to "Public Profile", edit_user_registration_path(:anchor => "public_profile"),
+        :"data-id" => "public_profile"
+    %li
+      = link_to "Account Admin", edit_user_registration_path(:anchor => "account_admin"),
+        :"data-id" => "account_admin"
+
+%section#bucket
+  = render :partial => "public_profile"
+  = render :partial => "account_admin"

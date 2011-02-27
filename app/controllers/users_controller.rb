@@ -14,12 +14,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if current_user.update_attributes(params[:user])
-        format.json { head :ok }
-      else
-        format.json  { render :json => current_user.errors, :status => :unprocessable_entity }
-      end
+    if current_user.update_attributes(params[:user])
+      redirect_to current_user, :notice => "You updated your profile successfully."
+    else
+      #TODO: find a way to render registrations#edit with errors
+      redirect_to :back
     end
   end
 

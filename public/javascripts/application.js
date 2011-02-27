@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  if($(".best_in_place").length) {
-    $(".best_in_place").best_in_place();
-  }
-
   if($(".datetime").length) {
     $(".datetime").datetime({format: "M d, yy 'at' hh:ii UTC"});
   }

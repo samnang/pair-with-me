@@ -58,7 +58,7 @@ describe UsersController do
     context "on the same logged in user" do
       let(:params) { {:id => user.username, :format => :json, :user => {:full_name => 'my name'}} }
 
-      it { should respond_with(:success) }
+      it { should respond_with(:redirect) }
       it { controller.current_user.full_name.should == params[:user][:full_name] }
     end
 
