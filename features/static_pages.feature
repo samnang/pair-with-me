@@ -8,5 +8,5 @@ Feature: Static pages
     And a user exists with full_name: "Samnang"
     Then I should be able to browse the following pages:
       | example katas | Example Katas |
-      | users | Users |
-      | user's | Samnang |
+      | users         | Users         |
+      | user's        | Samnang       |
