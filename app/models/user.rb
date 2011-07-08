@@ -64,6 +64,6 @@ class User < ActiveRecord::Base
   private
   
   def set_full_name
-    self.full_name = self.username
+    self.full_name = self.username if self.full_name.blank?
   end
 end

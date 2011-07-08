@@ -7,9 +7,11 @@ gem 'haml-rails'
 gem 'mysql2', '~> 0.2.7'
 gem 'devise'
 gem 'kaminari'
+gem 'rake', '~> 0.8.7'
 
 group :development, :test do
   gem 'cucumber-rails'
+  gem 'pickle'
   gem 'capybara', ">= 0.4.1.2"
   gem 'launchy'
   gem 'database_cleaner'

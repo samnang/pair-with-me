@@ -15,9 +15,9 @@ Feature: User authentication
 
   Scenario: User Sign in
     Given I am not logged in
-    And I am a user named "foo" with an email "foo@test.com" and password "foobar"
+    And a user exists with username: "samnang", password: "foobar"
     When I go to the sign in page
-    And I fill in "Username or email" with "foo"
+    And I fill in "Username or email" with "samnang"
     And I fill in "Password" with "foobar"
     And I press "Log in"
     Then I should see "Signed in successfully."

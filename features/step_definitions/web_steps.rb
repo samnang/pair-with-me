@@ -110,6 +110,12 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
+When /^(?:|I )should see the following:$/ do |content|
+  content.hashes.each do |hash|
+    When %{I should see "#{hash[:text]}"}
+  end
+end
+
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
 
@@ -209,3 +215,12 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+
+Then /^I should be able to browse the following pages:$/ do |pages|
+  pages.rows_hash.each do |page, content|
+    When %{I go to the #{page} page}
+    When %{I should see "#{content}"}
+  end
+end
+
